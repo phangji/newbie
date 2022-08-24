@@ -1,0 +1,60 @@
+### 상품 리스트 조회
+GET {{host}}/api/internal/products
+
+> {%
+client.test("Request executed successfully", function() {
+  client.assert(response.status === 200, "Response status is not 200");
+});
+%}
+
+### 상품 단일 조회
+GET {{host}}/api/internal/products/1
+
+> {%
+client.test("Request executed successfully", function() {
+  client.assert(response.status === 200, "Response status is not 200");
+});
+%}
+
+### 상품 생성
+POST {{host}}/api/internal/products
+Content-Type: application/json
+
+{
+  "name": "사과",
+  "price": 1000,
+  "deliveryPrice": 2500,
+  "stockCount": 100
+}
+
+> {%
+client.test("Request executed successfully", function() {
+  client.assert(response.status === 201, "Response status is not 200");
+});
+%}
+
+### 상품 수정
+PUT {{host}}/api/internal/products/1
+Content-Type: application/json
+
+{
+  "name": "사과",
+  "price": 1200,
+  "deliveryPrice": 2500,
+  "stockCount": 100
+}
+
+> {%
+client.test("Request executed successfully", function() {
+  client.assert(response.status === 200, "Response status is not 200");
+});
+%}
+
+### 상품 삭제
+DELETE {{host}}/api/internal/products/1
+
+> {%
+client.test("Request executed successfully", function() {
+  client.assert(response.status === 200, "Response status is not 200");
+});
+%}

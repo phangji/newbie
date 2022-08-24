@@ -1,0 +1,27 @@
+spring:
+  profiles:
+    active: local
+---
+spring:
+  config:
+    activate:
+      on-profile: local
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/ssg
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: newbie
+    password: newbie
+  jpa:
+    show-sql: true
+    generate-ddl: false
+    hibernate:
+      ddl-auto: none
+  sql:
+    init:
+      schema-locations: classpath:schema.sql
+      data-locations: classpath:data.sql
+      mode: never
+logging:
+  level:
+    root: INFO
+    org.springframework.orm.jpa: DEBUG
