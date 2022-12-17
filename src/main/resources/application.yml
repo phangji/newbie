@@ -25,3 +25,11 @@ logging:
   level:
     root: INFO
     org.springframework.orm.jpa: DEBUG
+---
+spring:
+  config:
+    activate:
+      on-profile: test
+  sql:
+    init:
+      mode: never
